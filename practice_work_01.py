@@ -13,7 +13,10 @@
 text = "Hello, World! 2025..."
 print("Строка до обработки:", text)
 
+new_text = ""
 
-
+for char in text:
+    if char.isalpha() or char.isdigit() or char == " ":
+        new_text += char
 
 print("Результат:", new_text)

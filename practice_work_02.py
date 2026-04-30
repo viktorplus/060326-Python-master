@@ -10,7 +10,13 @@
 
 text = "The quick brown fox jumps over the lazy dog"
 
+text = text.lower()
+is_contained = True
 
+for char in "abcdefghijklmnopqrstuvwxyz":
+    if char not in text:
+        is_contained = False
+        break
 
 
 print("Исходная строка:", text)
