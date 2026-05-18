@@ -8,12 +8,32 @@ matrix = [[1, 2], [3, 4], [5, 6]]
 [1, 2, 3, 4, 5, 6]
 """
 
+from collections.abc import Iterable
+
+
 matrix = [[1, 2], [3, 4], [5, 6]]
 
 flattened = [
-    item 
+    i
     for sublist in matrix 
-    for item in sublist
+    for i in sublist
 ]
 
 print(flattened)
+
+
+
+f = [i for i in matrix]
+
+def flatten(m):
+    result = []
+    for i in m:
+        if isinstance(i, Iterable) and not isinstance(i, str):
+            result.extend(flatten(i))
+        else:
+            result.append(i)
+    return result
+
+
+print(flatten(matrix))
+
