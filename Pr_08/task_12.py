@@ -13,4 +13,12 @@ numbers = [4, 1, 7, 6, 2, 6, 8, 1, 5, 4]
 
 numbers = [4, 1, 7, 6, 2, 6, 8, 1, 5, 4]
 
+unique = []
+
+for number in numbers:
+    if number not in unique:
+        unique.append(number)
+
+print("Уникальные:", unique)
+
 

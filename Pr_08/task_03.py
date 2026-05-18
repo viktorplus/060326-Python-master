@@ -18,3 +18,6 @@
 animals = ["тигр", "слон", "обезьяна", "змея"]
 weights = [250, 4000, 15, 5]
 
+print(list(zip(animals, weights)))
+
+print("Самое лёгкое животное:", animals[weights.index(min(weights))])

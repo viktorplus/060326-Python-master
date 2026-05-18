@@ -12,9 +12,9 @@
 n = 3  # int(input("Введите размер координатной сетки: ")
 grid = [
     (x, y)
-    for x in range(3)
-    for y in range(3)
+    for x in range(n)
+    for y in range(n)
 ]
 
-print(grid)
+print("Координаты:", grid)
 

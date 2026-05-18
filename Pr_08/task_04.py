@@ -14,9 +14,14 @@ words = ["apple", "banana", "kiwi", "cherry", "pear", "grape", "melon"]
 Группы слов:
 [['banana', 'cherry'], ['apple', 'grape', 'melon'], ['kiwi', 'pear']]
 """
-# Итоговый список для сравнения с результатом:
-sample = [['banana', 'cherry'], ['apple', 'grape', 'melon'], ['kiwi', 'pear']]
-
 
 words = ["apple", "banana", "kiwi", "cherry", "pear", "grape", "melon"]
 
+lenghts = sorted(set(len(w) for w in words), reverse=True)
+
+result = []
+
+for l in lenghts:
+    result.append(sorted([w for w in words if len(w) == l]))
+
+print(result)

@@ -13,4 +13,6 @@ words = ["apple", "cherry", "kiwi", "banana", "orange"]
 words = ["apple", "cherry", "kiwi", "banana", "orange"]
 char = "r"  # input("Исключить символ: ")
 
+filtered_words = [word for word in words if char not in word]
 
+print(filtered_words)

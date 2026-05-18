@@ -21,3 +21,21 @@ from collections import deque
 
 queue = deque()
 
+while True:
+    order = input("Введите заказ или \"exit\" для завершения: ")
+
+    if order == "exit":
+        break
+
+    queue.append(order)
+
+if not queue:
+	print("Пустая очередь")
+	exit()
+
+print("Первый заказ:", queue.popleft())
+
+print("Осталось", len(queue), "заказов:")
+
+for order in queue:
+    print("-", order)

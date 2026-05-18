@@ -16,9 +16,6 @@ text = "Apple orange apple banana Orange"
 
 text = "Apple orange apple banana Orange"
 
+print("Количество уникальных:", len(set(text.lower().split())))
 
 
-
-
-
-print("Количество уникальных:", ...)
