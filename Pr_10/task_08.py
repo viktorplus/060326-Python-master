@@ -23,7 +23,17 @@ new4 = "task2"
 from collections import OrderedDict
 
 def lru_cache(queue, limit, *new_tasks):
-    pass
+    cache = OrderedDict.fromkeys(queue[-limit:])
+
+    for task in new_tasks:
+        if task in cache:
+            cache.move_to_end(task)
+        else:
+            cache[task] = None
+            cache.popitem(last=False)
+
+    return list(cache.keys())
+
 
 
 tasks = ["task1", "task2", "task3", "task4", "task5", "task6"]

@@ -19,7 +19,7 @@ def count_page_visits(pages):
     for page in pages:
         visits[page] += 1
 
-    return visits
+    return dict(visits)
 
 pages = ["home", "about", "home", "products", "home", "contact", "products"]
 sample = {'home': 3, 'about': 1, 'products': 2, 'contact': 1}

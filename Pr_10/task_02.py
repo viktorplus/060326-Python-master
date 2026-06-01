@@ -18,6 +18,7 @@ tasks = {
 """
 
 from collections import defaultdict
+from pprint import pprint
 
 def group_tasks_by_category(tasks):
     categories = defaultdict(list)
@@ -25,7 +26,7 @@ def group_tasks_by_category(tasks):
     for task, category in tasks.items():
         categories[category].append(task)
 
-    return categories
+    return dict(categories)
 
 tasks = {
     "task1": "работа",
@@ -42,5 +43,5 @@ sample = {
 }
 
 result = group_tasks_by_category(tasks)
-print(result)
+pprint(result)
 print(result == sample)

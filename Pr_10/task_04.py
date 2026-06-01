@@ -41,6 +41,7 @@ def sort_by_priority(tasks):
 sort_by_priority(tasks)
 
 print("Очередь задач:")
+
 for task, priority in tasks.items():
     print(f"\ttask{task}: {priority}")
 
