@@ -28,6 +28,19 @@ tasks = OrderedDict({
     "task5": "высокий"
 })
 
+
+sort_map = ["высокий", "средний", "низкий"]
+
 def sort_by_priority(tasks):
-    pass
+    for value in sort_map:
+        for task, priority in tasks.copy().items():
+            if priority == value:
+                tasks.move_to_end(task)
+
+
+sort_by_priority(tasks)
+
+print("Очередь задач:")
+for task, priority in tasks.items():
+    print(f"\ttask{task}: {priority}")
 

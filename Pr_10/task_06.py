@@ -11,10 +11,20 @@ words = ["apple", "banana", "kiwi", "grape", "orange", "peach"]
 """
 
 from collections import defaultdict
+from pprint import pprint
 
 
 def group_words_by_length(words):
-    pass
+    length = defaultdict(list)
+
+    for word in words:
+        length[len(word)].append(word)
+        
+    return length
 
 
 words = ["apple", "banana", "kiwi", "grape", "orange", "peach"]
+
+res = group_words_by_length(words)
+
+pprint(res)

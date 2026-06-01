@@ -14,7 +14,12 @@ pages = ["home", "about", "home", "products", "home", "contact", "products"]
 from collections import defaultdict
 
 def count_page_visits(pages):
-    pass
+    visits = defaultdict(int)
+
+    for page in pages:
+        visits[page] += 1
+
+    return visits
 
 pages = ["home", "about", "home", "products", "home", "contact", "products"]
 sample = {'home': 3, 'about': 1, 'products': 2, 'contact': 1}

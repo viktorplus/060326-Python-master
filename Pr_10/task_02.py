@@ -20,7 +20,12 @@ tasks = {
 from collections import defaultdict
 
 def group_tasks_by_category(tasks):
-    pass
+    categories = defaultdict(list)
+
+    for task, category in tasks.items():
+        categories[category].append(task)
+
+    return categories
 
 tasks = {
     "task1": "работа",

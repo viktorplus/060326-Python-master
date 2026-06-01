@@ -18,14 +18,20 @@ from collections import Counter
 
 
 def popular_words(count, *texts):
-    pass
+	words = Counter(" ".join(texts).lower().replace(".", "").split())
+	return words.most_common(count)
 
 
 text1 = "This is a sample text with some repeated words."
 text2 = "Another sample text with different words."
 text3 = "Text processing is fun when words repeat."
 
-popular_words(5, text1, text2, text3)
+res = popular_words(5, text1, text2, text3)
+
+for word, count in res:
+	print(f"{word}: {count}")
+
+
 # 5 самых популярных слов:
 # 	text: 3
 # 	words: 3

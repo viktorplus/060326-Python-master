@@ -21,7 +21,8 @@ category = "учёба"
 """
 
 def find_tasks_by_category(tasks, category):
-    pass
+    return [task for task, cat in tasks.items() if cat == category]
+    
 
 tasks = {
     "task1": "работа",
@@ -30,3 +31,9 @@ tasks = {
     "task4": "работа",
     "task5": "учёба"
 }
+
+category = "учёба"
+
+res = find_tasks_by_category(tasks, category)
+
+print(f"Задачи для категории '{category}':", res)
