@@ -14,4 +14,14 @@ data = [42, "hello", [1, 2, 3], {"a": 1, "b": 2}]
 42 | hello | [1, 2, 3] | {'a': 1, 'b': 2}
 """
 
+from typing import Any
 
+
+data = [42, "hello", [1, 2, 3], {"a": 1, "b": 2}]
+
+
+def to_string(d: list[Any]) -> str:
+  return " | ".join([str(x) for x in d])
+
+
+print(to_string(data))
