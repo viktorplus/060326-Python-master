@@ -12,8 +12,11 @@ from functools import reduce
 def product(numbers: list[int]) -> int:
     return reduce(lambda x, y: x * y, numbers)
 
+
+
 sample = 120
 numbers = [1, 2, 3, 4, 5]
+
 
 result = product(numbers)
 print(result)

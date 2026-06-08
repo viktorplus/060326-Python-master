@@ -17,9 +17,15 @@ words = ["hi", "Hello", "a", "python", "Ok", "Radar"]
 from typing import Callable
 
 
-words = ["hi", "Hello", "a", "python", "Ok"]
+words = ["hi", "Hello", "a", "python", "Ok", "Radar"]
 
 def filter_long_words(words: list[str], f: Callable[[str], bool]) -> list[str]:
+    """
+    Фильтр слов с заглавной буквы
+
+    :words: список слов
+    :f: callable функция проверки на соответствие критерию
+    """
     return [word for word in words if f(word)]
 
 
@@ -30,9 +36,12 @@ def has_one_symbol(word: str) -> bool:
     return len(word) == 1
 
 def starts_and_ends_with_letter(word: str) -> bool:
-    return word[0].islower() and word[-1].islower()
+    return word[0].lower() == word[-1].lower()
 
 
 print(filter_long_words(words, starts_with_capital))
 print(filter_long_words(words, has_one_symbol))
 print(filter_long_words(words, starts_and_ends_with_letter))
+
+
+print(filter_long_words(words, lambda x: x[0].isupper()))

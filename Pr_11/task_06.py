@@ -45,7 +45,6 @@ def average_by_name(students: list[dict[str, list[int]]]) -> dict[str, float]:
         result[student["name"]] = round(sum(student["grades"]) / len(student["grades"]), 2)
     return dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
 
-    
 
 print(average_by_name(students))
 print(average_by_name1(students))
