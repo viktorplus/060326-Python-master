@@ -11,3 +11,12 @@ words = ["hi", "Hello", "a", "python", "Ok"]
 """
 
 
+words = ["hi", "Hello", "a", "python", "Ok"]
+
+def filter_long_words(words: list[str]) -> list[str]:
+    return [word for word in words if len(word) > 3]
+
+sample = ["Hello", "python"]
+result = filter_long_words(words)
+print(result)            # ['Hello', 'python']
+print(result == sample)  # True

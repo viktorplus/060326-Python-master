@@ -20,17 +20,18 @@ nums = [1, 2, 3, 4, 5, 6]
 
 from typing import Callable
 
-def is_even():
-    pass
+def is_even(x: int) -> bool:
+    return x % 2 == 0
 
 
-def filter_by_predicate():
-    pass
+def filter_by_predicate(l: list[int], f: Callable[[int], bool]) -> list:
+    return [x for x in l if f(x)]
+
 
 
 nums = [1, 2, 3, 4, 5, 6]
 sample = [2, 4, 6]
 
-result = ...
+result = filter_by_predicate(nums, is_even)
 print(result)            # [2, 4, 6]
 print(result == sample)  # True

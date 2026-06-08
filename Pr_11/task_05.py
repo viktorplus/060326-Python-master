@@ -25,8 +25,21 @@ time_limit = 14
 {'task3': 7, 'task1': 5, 'task4': 2}
 """
 
-def filter_tasks_by_time():
-    pass
+def filter_tasks_by_time(d: dict[str, int], t: int) -> dict[str, int]:
+    sorted_tasks = sorted(d.items(), key=lambda x: x[1], reverse=True)
+
+    total_time = 0
+
+    result = {}
+
+    for k, v in sorted_tasks:
+        if total_time + v > t:
+            continue
+
+        result[k] = v
+        total_time += v
+
+    return result
 
 
 

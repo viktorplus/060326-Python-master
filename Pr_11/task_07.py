@@ -22,3 +22,28 @@ words = ["banana", "kiwi", "grapefruit", "apple"]
 3 Замените сортировку по длине на сортировку по сумме порядковых номеров"""
 
 
+from typing import Callable
+
+
+words = ["banana", "kiwi", "grapefruit", "apple"]
+
+
+# lambda
+result = sorted(words, key=lambda x: sum(ord(c) for c in x))
+print("Сортировка по сумме через lamda:", result)
+
+# func
+def sort_by_sum(x: str) -> int:
+    return sum(ord(c) for c in x)
+
+
+# функция сортировки по длине
+def sort_custom(
+        words: list[str], 
+        f: Callable[[str], int] = lambda x: len(x)
+) -> list[str]:
+    return sorted(words, key=f)
+
+print("Сортировка по длине:", sort_custom(words))
+
+print("Сортировка по сумме:", sort_custom(words, sort_by_sum))

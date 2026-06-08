@@ -7,12 +7,10 @@ numbers = [1, 2, 3, 4, 5]
 Пример вывода:
 120
 """
-
-
 from functools import reduce
 
-def product():
-    pass
+def product(numbers: list[int]) -> int:
+    return reduce(lambda x, y: x * y, numbers)
 
 sample = 120
 numbers = [1, 2, 3, 4, 5]

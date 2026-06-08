@@ -6,6 +6,6 @@
 nums = [1, 2, 3, 4, 5, 6]
 sample = [2, 4, 6]
 
-result = ...
+result = list(filter(lambda x: x % 2 == 0, nums))
 print(result)            # [2, 4, 6]
 print(result == sample)  # True

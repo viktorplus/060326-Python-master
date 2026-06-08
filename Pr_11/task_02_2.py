@@ -9,3 +9,9 @@ min_len = 2
 ['hi', 'Hello', 'python', 'Ok']
 """
 
+words = ["hi", "Hello", "a", "python", "Ok"]
+
+def filter_long_words(words: list[str], min_len: int = 3) -> list[str]:
+    return [word for word in words if len(word) >= min_len]
+
+result = filter_long_words(words, 2)

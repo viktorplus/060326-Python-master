@@ -14,10 +14,8 @@ print(sort_by_length(words))
 ['kiwi', 'grape', "apple", 'banana']
 """
 
-def sort_by_length():
-    pass
-
-
+def sort_by_length(l: list[str]) -> list[str]:
+    return sorted(l, key=lambda x: (-len(x), x), reverse=True)
 
 sample = ['kiwi', 'grape', "apple", 'banana']
 words = ["apple", "banana", "kiwi", "grape"]

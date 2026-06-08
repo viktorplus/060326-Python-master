@@ -17,3 +17,21 @@ original_dict = {"a": 1, "b": 2, "c": 3}
 Инверсированный словарь: {1: 'a', 2: 'b', 3: 'c'}
 """
 
+def invert_dict(d: dict[str, int]) -> dict[int, str]:
+    """
+    Создаёт новый словарь, где
+    значения из исходного словаря становятся ключами,
+    а ключи — значениями.
+
+    :param d: исходный словарь
+    :return: инверсированный словарь
+    """
+    return {v: k for k, v in d.items()}
+
+original_dict = {"a": 1, "b": 2, "c": 3}
+inverted_dict = invert_dict(original_dict)
+print(inverted_dict)
+
+need = {1: 'a', 2: 'b', 3: 'c'}
+
+print(need == inverted_dict)
