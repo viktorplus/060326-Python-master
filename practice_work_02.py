@@ -19,9 +19,26 @@ original_data = [
 
 """
 
-def mdc(original_data):
-    pass
+from copy import copy
 
+def mdc(original_data):
+    """ Мой deepcopy """
+    if isinstance(original_data, list):
+        return [mdc(item) for item in original_data]
+
+    if isinstance(original_data, tuple):
+        return tuple(mdc(item) for item in original_data)
+
+    if isinstance(original_data, dict):
+        return {
+            mdc(key): mdc(value)
+            for key, value in original_data.items()
+        }
+
+    if isinstance(original_data, set):
+        return {mdc(item) for item in original_data}
+
+    return original_data
 
 od = [[1, 2, 3], (4, [0, 6], {8, 7}), {'a': 9, 'b': [10, 11]}, 'Hello', [12, (13, 14)], 15.5, 5]
 

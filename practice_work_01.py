@@ -17,7 +17,9 @@ https://ru.wikipedia.org/wiki/Числа_Фибоначчи
 """
 
 def get_fibonacci(n):
-    pass
+    if n >= 2:
+        return get_fibonacci(n - 1) + get_fibonacci(n - 2)
+    return n
 
 print(get_fibonacci(10))  # 55
 
