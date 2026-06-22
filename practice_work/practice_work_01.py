@@ -20,10 +20,22 @@ lorem: 17
 
 """
 from collections import Counter
-
+import os
 
 def count_words(file_name: str, num_words: int) -> None:
-    pass
+    if not os.path.isfile(file_name):
+        print(f'\nFile "{file_name}" not found')
+        return
+
+    with open(file_name, 'r') as f:
+        words = f.read().split()
+
+        counter = Counter(words)
+
+        print('Популярные слова:')
+
+        for word, count in counter.most_common(num_words):
+            print(f'{word}: {count}')
 
 
 count_words('text.txt', 3)

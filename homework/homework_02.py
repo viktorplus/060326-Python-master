@@ -20,9 +20,24 @@
 Дубликаты удалены. Уникальные строки сохранены в unique_movies_to_watch.txt.
 
 """
+import os
 
 def remove_duplicates(filename: str) -> None:
-    pass
+    if not os.path.isfile(filename):
+        print(f"Ошибка: файл '{filename}', не найден.")
+        return
+
+    unique_lines = []
+    with open(filename, 'r') as source:
+        for line in source:
+            if line not in unique_lines:
+                unique_lines.append(line)
+
+    with open(f'unique_{filename}', 'w') as output:
+        for line in unique_lines:
+            output.write(line)
+
+    print(f'Дубликаты удалены. Уникальные строки сохранены в unique_{filename}.')
 
 
 

@@ -17,7 +17,7 @@ import os
 import sys
 
 if len(sys.argv) != 3:
-    print("Ипользование: ./practice_work_03.py <путь к директории> <расширение файлов>")
+    print("Ипользование: ./find.py <путь к директории> <расширение файлов>")
     exit(1)
 
 dir_path = sys.argv[1]

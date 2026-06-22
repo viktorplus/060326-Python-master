@@ -18,9 +18,20 @@
 Строки, содержащие 'error', сохранены в <keyword>_<original_filename>.
 
 """
+import os
 
 def find_keyword(filename: str, keyword: str) -> None:
-    pass
+    if not os.path.isfile(filename):
+        print(f'\nFile "{filename}" not found')
+        return
+
+    with open(f'{keyword}_{filename}', 'w') as output:
+        with open(filename, 'r') as source:
+             for line in source:
+                if keyword in line:
+                    output.write(line)
+
+    print(f'Строки, содержащие \'{keyword}\', сохранены в {keyword}_{filename}.')
 
 
 find_keyword('s', 'error')

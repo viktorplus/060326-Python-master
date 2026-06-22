@@ -17,8 +17,23 @@
 Пустые строки удалены, сохранено в tasks_cleaned.txt.
 """
 
+import os
+
 def remove_empty_lines(filename: str) -> None:
-    pass
+    if not os.path.isfile(filename):
+        print(f'\nFile "{filename}" not found')
+        return
+
+    basename, extension = os.path.splitext(filename)
+
+    with open(f'{basename}_cleaned.txt', 'w') as output:
+        with open(filename, 'r') as source:
+            for line in source:
+                if line.strip() != '':
+                    output.write(line)
+
+    print('Пустые строки удалены, сохранено в tasks_cleaned.txt.')
+
 
 
 remove_empty_lines('tasks.txt')
