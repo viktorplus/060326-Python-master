@@ -1,3 +1,4 @@
+#!/usr/sbin/python
 """Практические задания 13
 Лекция 26 - Работа с файловой системой
 
@@ -80,10 +81,44 @@ import os
 import sys
 from pprint import pprint
 
-
 def process_sales_data(file_path, output_dir):
     """Обрабатывает продажи и создаёт отчёты по категориям и общие отчёты по месяцам."""
-    """Обрабатывает продажи и создаёт отчёты по категориям и общие отчёты по месяцам."""
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Файл {file_path} не найден")
+
+    grouped_sales = {}
+
+    category_totals = {}
+
+
+    with open(file_path, "r", encoding="utf-8") as source:
+        for line in source:
+            name, date, amount, category, city, *_ = line.split(",")
+
+            year, month, day = date.split("-")
+
+            date_group_key = (year, month)
+
+            grouped_sales.setdefault(date_group_key, []).append(
+                {
+                    "name": name,
+                    "date": date,
+                    "amount": amount,
+                    "category": category,
+                    "city": city,
+                }
+            )
+
+
+            print(name, date, amount, category, city)
+
+
+
+
+
+
+
+
     """    
     grouped_sales ==================================================
     {   
