@@ -27,10 +27,17 @@
 """
 
 def add_tasks():
-    pass
+    with open("tasks.txt", "a", encoding="utf-8") as file:
+        while True:
+            task = input("Введите задачу: ")
+
+            if task == "exit":
+                break
+
+            file.write(task + "\n")
+            file.flush()
 
 
 if __name__ == "__main__":
     add_tasks()
-
 

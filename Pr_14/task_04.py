@@ -20,11 +20,12 @@ from task_02 import random_dates
 from task_03 import random_names
 
 def combine_generators(*generators):
-    pass
+    while True:
+        yield tuple(next(generator) for generator in generators)
 
 # Используем ранее созданные генераторы
-name_gen = ...
-date_gen = ...
+name_gen = random_names()
+date_gen = random_dates(2025)
 
 # Создаём генератор тюплов
 data_gen = combine_generators(name_gen, date_gen)
@@ -32,6 +33,5 @@ data_gen = combine_generators(name_gen, date_gen)
 # Выводим тестовые данные
 for _ in range(5):
     print(next(data_gen))
-
 
 

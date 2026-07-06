@@ -24,7 +24,11 @@ from random import choice, seed
 seed(42)
 
 def random_names():
-    pass
+    first_names = ["Alice", "Bob", "Charlie", "David", "Emma"]
+    last_names = ["Smith", "Johnson", "Brown", "Williams", "Jones"]
+
+    while True:
+        yield f"{choice(first_names)} {choice(last_names)}"
 
 
 if __name__ == "__main__":
@@ -33,4 +37,3 @@ if __name__ == "__main__":
 
     for _ in range(5):
         print(next(gen))
-

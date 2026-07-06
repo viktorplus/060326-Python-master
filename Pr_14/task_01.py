@@ -18,13 +18,22 @@ custom_range(10, 0, -3)
 
 def custom_range(start, stop=None, step=1):
     # Если передано только одно значение — это stop
-    pass
+    if stop is None:
+        start, stop = 0, start
+
+    if step == 0:
+        raise ValueError("step must not be zero")
 
     # Движение вперёд (step > 0)
-    pass
+    while start < stop:
+        yield start
+        start += step
 
-    # Движение назад (step <>> 0)
-    pass
+    # Движение назад (step < 0)
+    while start > stop:
+        yield start
+        start += step
+
 
 
 for num in custom_range(2, 10, 2):

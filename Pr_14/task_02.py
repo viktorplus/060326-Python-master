@@ -21,10 +21,16 @@ import random
 random.seed(42)
 
 def is_leap(year):
-    pass
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
 def random_dates(year):
-    pass
+    days_in_month = [31, 28 + is_leap(year), 31, 30, 31, 30,
+                     31, 31, 30, 31, 30, 31]
+
+    while True:
+        month = random.randint(1, 12)
+        day = random.randint(1, days_in_month[month - 1])
+        yield f"{year}-{month:02d}-{day:02d}"
 
 
 if __name__ == "__main__":
@@ -32,6 +38,5 @@ if __name__ == "__main__":
 
     for _ in range(5):
         print(next(gen))
-
 
 

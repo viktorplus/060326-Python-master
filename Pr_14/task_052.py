@@ -36,7 +36,29 @@ import itertools
 
 # Генератор с 5 попытками открыть файл
 def task_assigner(employees, filename="tasks.txt"):
-    pass
+    employee_cycle = itertools.cycle(employees)
+
+    for attempt in range(1, 6):
+        try:
+            file = open(filename, "r", encoding="utf-8")
+            break
+        except FileNotFoundError:
+            print(f"Файл не найден, попытка {attempt}/5...")
+            time.sleep(3)
+    else:
+        print("Файл так и не найден. Завершаем работу.")
+        return
+
+    with file:
+        while True:
+            task = file.readline()
+
+            if task:
+                task = task.strip()
+                if task:
+                    yield next(employee_cycle), task
+            else:
+                time.sleep(3)
 
 
 if __name__ == "__main__":
@@ -47,4 +69,3 @@ if __name__ == "__main__":
     for task in task_generator:
         employee, task = task
         print(f"{employee} выполняет: {task}")
-
