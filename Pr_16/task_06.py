@@ -40,7 +40,17 @@ Incorrect type for argument '0': expected - <class 'str'>, received - <class 'in
 """
 
 def accepts_types(*expected_types):
-    pass
+    def wrapper1(func):
+        def wrapper2(*args):
+            for arg, expected_type in zip(args, expected_types):
+                if not isinstance(arg, expected_type):
+                    raise TypeError(f"Incorrect type for argument '{arg}': expected - {expected_type}, received - {type(arg)}")
+
+            return func(*args)
+
+        return wrapper2
+
+    return wrapper1
 
 
 @accepts_types(int, int)
