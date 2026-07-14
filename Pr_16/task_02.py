@@ -12,8 +12,19 @@ def get_text():
 Пример вывода:
 Это очень длинный текст...
 """
+
 def limit_output(max_len=20):
-    pass
+    def wrapperParam(func):
+        def wrapper(*args, **kwargs):
+            text = func(*args, **kwargs)
+
+            if len(text) > max_len:
+                return text[:max_len-3] + "..."
+            else:
+                return text
+
+        return wrapper
+    return wrapperParam
 
 
 @limit_output(26)

@@ -16,7 +16,15 @@ def get_text():
 Это очень длинный...
 """
 def limit_output(func):
-    pass
+    def wrapper(*args, **kwargs):
+        text = func(*args, **kwargs)
+
+        if len(text) > 20:
+            return text[:20-3] + "..."
+        else:
+            return text
+
+    return wrapper
 
 
 @limit_output

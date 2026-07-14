@@ -27,7 +27,20 @@ print(multiply(2, 3))
 6
 """
 def cache(func):
-    pass
+    cache = {}
+    def wrapper(*args):
+        if cache.get(args):
+
+            print(f"Результат из кеша: {cache[args]}")
+
+            return cache[args]
+
+        cache[args] = func(*args)
+
+        return cache[args]
+
+    return wrapper
+
 
 
 @cache

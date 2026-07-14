@@ -31,7 +31,24 @@ from collections import OrderedDict
 
 
 def cache(max_size=10):
-    pass
+    cache = OrderedDict()
+    def wrapper1(func):
+        def wrapper(*args):
+            if cache.get(args):
+
+                print(f"Результат из кеша: {cache[args]}")
+
+                return cache[args]
+
+            cache[args] = func(*args)
+
+            if len(cache) > max_size:
+                cache.popitem(last=False)
+
+            return cache[args]
+
+        return wrapper
+    return wrapper1
 
 @cache(max_size=2)
 def multiply(a, b):
