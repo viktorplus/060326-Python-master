@@ -40,7 +40,11 @@ logging.basicConfig(
 
 
 def log_to_file(func):
-    pass
+    def wrapper(*args, **kwargs):
+        logging.info(f"function {func.__name__} | args {args}; kwargs: {kwargs} | return {func(*args, **kwargs)}")
+
+        return func(*args, **kwargs)
+    return wrapper
 
 
 @log_to_file
